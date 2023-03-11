@@ -1,3 +1,5 @@
+import { Inter } from "next/font/google";
+
 export const metadata = {
   title: "Fireside API",
   description:
@@ -10,6 +12,8 @@ export const metadata = {
   twitter: { creator: "@arthuro555" },
 };
 
+const inter = Inter({ subsets: ["latin"] });
+
 export default function RootLayout({
   children,
 }: {
@@ -17,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body {...inter}>{children}</body>
     </html>
   );
 }

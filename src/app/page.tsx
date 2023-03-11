@@ -1,10 +1,6 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   return (
-    <div {...inter}>
+    <div>
       <h1>Fireside API</h1>
       <h2>Documentation:</h2>
       <h5>
