@@ -25,7 +25,7 @@ const queryStringValidator = z.object({
   // The authentication request ID
   state: z.string().uuid().optional(),
   // An error from discord
-  error_message: z.string().optional(),
+  error_description: z.string().optional(),
 });
 
 export const revalidate = 0;
@@ -36,11 +36,15 @@ export const GET = async (req: Request) => {
   );
   if (isResponse(queryStringParametersOrErrorResponse))
     return queryStringParametersOrErrorResponse;
-  const { error_message, code, state } = queryStringParametersOrErrorResponse;
+  const { error_description, code, state } =
+    queryStringParametersOrErrorResponse;
 
   // We received an error from discord, forward it.
-  if (error_message) {
-    return redirect(`/auth/failure?error=${encodeURIComponent(error_message)}`);
+  if (error_description) {
+    redisClient.del(`auth_request:${state}`);
+    return redirect(
+      `/auth/failure?error=${encodeURIComponent(error_description)}`
+    );
   }
 
   if (!state) {
@@ -54,14 +58,15 @@ export const GET = async (req: Request) => {
   if (!(await redisClient.exists(`auth_request:${state}`))) {
     return redirect(
       `/auth/failure?error=${encodeURIComponent(
-        `Auth request is invalid or has timed out! Please try again.`
+        `Auth request has timed out! Please try again.`
       )}`
     );
   }
 
-  if (!code || typeof code !== "string")
+  if (!code || typeof code !== "string") {
     // We did not receive a code, this is not a proper response from discord. Redirect to discord oath.
     return redirect(`${OAUTH_URI}&state=${encodeURIComponent(state)}`);
+  }
 
   const body = new URLSearchParams({
     client_id: discodClientId,
