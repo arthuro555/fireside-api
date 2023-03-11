@@ -21,7 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body {...inter}>{children}</body>
+      <body {...inter}>
+        <div style={{ maxWidth: "900px" }}>{children}</div>
+      </body>
     </html>
   );
 }

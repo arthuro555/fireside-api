@@ -21,9 +21,34 @@
       "description": "Make the user log-in, to verify their status as a fireside user.",
       "fullName": "Authenticate user",
       "functionType": "Action",
+      "group": "Authentication",
       "name": "Authenticate",
       "sentence": "Log-in with Fireside",
       "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "__Fireside.LoggingIn",
+                "True"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "BuiltinAsync::ResolveAsyncEventsFunction"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ]
+        },
         {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [
@@ -156,23 +181,6 @@
                     "VariableString(__Fireside.Response)",
                     "__Fireside.Response"
                   ]
-                },
-                {
-                  "type": {
-                    "value": "SetSceneVariableAsBoolean"
-                  },
-                  "parameters": [
-                    "__Fireside.LoggingIn",
-                    "False"
-                  ]
-                },
-                {
-                  "type": {
-                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
-                  },
-                  "parameters": [
-                    ""
-                  ]
                 }
               ],
               "events": [
@@ -233,6 +241,29 @@
                       "parameters": [
                         "ToJSON(__Fireside.Response.userData)",
                         "__Fireside.UserData"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "SetSceneVariableAsBoolean"
+                      },
+                      "parameters": [
+                        "__Fireside.LoggingIn",
+                        "False"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "BuiltinAsync::ResolveAsyncEventsFunction"
+                      },
+                      "parameters": [
+                        ""
                       ]
                     }
                   ]
@@ -333,6 +364,14 @@
                     "GetArgumentAsString(\"AuthRequestUID\")",
                     ""
                   ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
+                  },
+                  "parameters": [
+                    ""
+                  ]
                 }
               ]
             }
@@ -352,6 +391,7 @@
       "description": "Checks if the current user is a logged-in user from the Fireside.",
       "fullName": "Is logged-In",
       "functionType": "Condition",
+      "group": "Authentication",
       "name": "IsLoggedIn",
       "sentence": "User is logged in",
       "events": [
@@ -363,8 +403,8 @@
                 "value": "VariableChildExists"
               },
               "parameters": [
-                "__Fireside.UserData",
-                "\"jwt\""
+                "__Fireside",
+                "\"Token\""
               ]
             }
           ],
@@ -639,6 +679,7 @@
       "description": "Checks if the current user is nitro boosting the Fireside.",
       "fullName": "Is a nitro booster?",
       "functionType": "Condition",
+      "group": "Role",
       "name": "IsNitroBooster",
       "sentence": "Current user is a nitro booster (epic)",
       "events": [
@@ -701,6 +742,7 @@
       "description": "Gets the discord username of the logged-in user.",
       "fullName": "Username",
       "functionType": "StringExpression",
+      "group": "User data",
       "name": "Username",
       "sentence": "",
       "events": [
@@ -756,6 +798,7 @@
       "description": "Gets the amount of time the current user has been a member of the fireside in milliseconds.",
       "fullName": "Membership time",
       "functionType": "Expression",
+      "group": "User data",
       "name": "MembershipTime",
       "sentence": "",
       "events": [
@@ -808,10 +851,12 @@
       "objectGroups": []
     },
     {
-      "fullName": "",
+      "description": "Loads up the user's discord avatar into a sprite object",
+      "fullName": "Load avatar in sprite",
       "functionType": "Action",
+      "group": "User data",
       "name": "LoadAvatarInSprite",
-      "sentence": "",
+      "sentence": "Load current user's avatar into sprite _PARAM1_",
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
