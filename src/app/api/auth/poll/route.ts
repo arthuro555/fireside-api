@@ -8,6 +8,8 @@ const wait = (t: number) => new Promise((resolve) => setTimeout(resolve, t));
 const queryStringValidator = z.object({
   authRequestUid: z.string().uuid(),
 });
+
+export const revalidate = 0;
 export const GET = async (req: Request) => {
   const queryStringParametersOrErrorResponse = getQueryStringParameters(
     req,

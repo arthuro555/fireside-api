@@ -28,6 +28,7 @@ const queryStringValidator = z.object({
   error_message: z.string().optional(),
 });
 
+export const revalidate = 0;
 export const GET = async (req: Request) => {
   const queryStringParametersOrErrorResponse = getQueryStringParameters(
     req,
