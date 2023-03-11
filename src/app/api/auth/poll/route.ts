@@ -1,3 +1,4 @@
+import { parseToken } from "@/lib/jwt";
 import { redisClient } from "@/lib/redis";
 import { getQueryStringParameters, isResponse } from "@/lib/utils";
 import { NextResponse } from "next/server";
@@ -34,5 +35,9 @@ export const GET = async (req: Request) => {
       });
   }
 
-  return NextResponse.json({ jwt });
+  // Pre-parse the JWT to minimize work to do in the SDKs (since there are multiple its a higher engineering cost).
+  // This also protects against an attack where someone gains access to the redis instance without having the JWT secret.
+  const userData = parseToken(jwt);
+
+  return NextResponse.json({ jwt, userData });
 };
