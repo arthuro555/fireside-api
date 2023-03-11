@@ -1,10 +1,9 @@
 import { hostname, discodClientId, discodClientSecret } from "@/lib/env";
 import { createToken } from "@/lib/jwt";
 import { redisClient } from "@/lib/redis";
-import { getQueryStringParameters } from "@/lib/utils";
+import { getQueryStringParameters, isResponse } from "@/lib/utils";
 import { TokenData } from "@/types/TokenData";
 import { redirect } from "next/navigation";
-import { NextResponse } from "next/server";
 import * as z from "zod";
 
 const scope = ["guilds.members.read"].join(" ");
@@ -20,20 +19,23 @@ const OAUTH_QS = new URLSearchParams({
 
 const OAUTH_URI = `https://discord.com/api/oauth2/authorize?${OAUTH_QS}`;
 
-const routeQueryParamsValidator = z.object({
+const queryStringValidator = z.object({
   // The discord oauth code
   code: z.string().optional(),
   // The authentication request ID
-  state: z.string().min(5).optional(),
+  state: z.string().uuid().optional(),
   // An error from discord
   error_message: z.string().optional(),
 });
 
 export const GET = async (req: Request) => {
-  const { error_message, code, state } = getQueryStringParameters(
+  const queryStringParametersOrErrorResponse = getQueryStringParameters(
     req,
-    routeQueryParamsValidator
+    queryStringValidator
   );
+  if (isResponse(queryStringParametersOrErrorResponse))
+    return queryStringParametersOrErrorResponse;
+  const { error_message, code, state } = queryStringParametersOrErrorResponse;
 
   // We received an error from discord, forward it.
   if (error_message) {
