@@ -1,0 +1,853 @@
+{
+  "author": "",
+  "category": "Third-party",
+  "extensionNamespace": "",
+  "fullName": "Fireside API",
+  "helpPath": "https://fireside.arthuro555.com",
+  "iconUrl": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0ibWRpLWNhbXBmaXJlIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTE1LjksMTguNUwyMS45LDIwLjFMMjEuNSwyMkwxMi4xLDE5LjVMMi43LDIyTDIuMiwyMC4xTDguMiwxOC41TDIuMSwxNi45TDIuNiwxNUwxMiwxNy41TDIxLjQsMTVMMjEuOSwxNi45TDE1LjksMTguNU0xNi4wNyw3LjkyQzE1LjkxLDcuNyAxNS43MSw3LjUgMTUuNSw3LjMzQzE1LjA1LDYuOSAxNC41LDYuNTkgMTQuMDYsNi4xM0MxMyw1LjA4IDEyLjc5LDMuMzQgMTMuNDQsMkMxMi43OSwyLjE3IDEyLjE4LDIuNTQgMTEuNjcsMi45NUM5Ljg0LDQuNDYgOS4xMSw3LjEgMTAsOS4zOEMxMCw5LjQ1IDEwLjA0LDkuNTMgMTAuMDQsOS42MkMxMC4wNCw5Ljc4IDkuOTMsOS45MiA5Ljc5LDEwQzkuNjMsMTAuMDUgOS40NiwxMCA5LjMzLDkuOUM5LjI4LDkuODYgOS4yNSw5LjgyIDkuMjIsOS43N0M4LjQyLDguNzQgOC4yOSw3LjI2IDguODQsNi4wN0M3LjY1LDcuMDYgNyw4LjcyIDcuMTEsMTAuMjlDNy4xMywxMC42NSA3LjE4LDExIDcuMywxMS4zNkM3LjQxLDExLjggNy41OSwxMi4yMyA3LjgyLDEyLjYxQzguNTcsMTMuODYgOS45LDE0Ljc2IDExLjMyLDE0Ljk0QzEyLjg0LDE1LjE0IDE0LjQ2LDE0Ljg1IDE1LjYzLDEzLjc5QzE2LjkzLDEyLjU5IDE3LjQsMTAuNjcgMTYuNzEsOUwxNi42MSw4LjgzQzE2LjQ3LDguNSAxNi4yOCw4LjIgMTYuMDQsNy45M0wxNi4wNyw3LjkyTTEzLjgzLDEyLjQ3QzEzLjYzLDEyLjY1IDEzLjMxLDEyLjgzIDEzLjA1LDEyLjkxQzEyLjI2LDEzLjE5IDExLjQ2LDEyLjc5IDExLDEyLjMxQzExLjg0LDEyLjExIDEyLjM0LDExLjQ3IDEyLjUsMTAuODNDMTIuNjEsMTAuMjUgMTIuMzksOS43OCAxMi4yOSw5LjIyQzEyLjIxLDguNjkgMTIuMjIsOC4yMyAxMi40Miw3LjczQzEyLjU1LDggMTIuNjksOC4yOCAxMi44Niw4LjVDMTMuNDEsOS4yMiAxNC4yNyw5LjU0IDE0LjQ1LDEwLjVDMTQuNDcsMTAuNjMgMTQuNSwxMC43MiAxNC41LDEwLjgzQzE0LjUsMTEuNDMgMTQuMjYsMTIuMDcgMTMuODIsMTIuNDciIC8+PC9zdmc+",
+  "name": "Fireside",
+  "previewIconUrl": "https://asset-resources.gdevelop.io/public-resources/Icons/5bc3bac5ada1160911461ab6a22294e2b5fa68a8a80a35a4e4f2b72820bc82e6_campfire.svg",
+  "shortDescription": "Allows to verify if a player is in the gamedev fireside to unlock special perks for them!",
+  "version": "1.0.0",
+  "description": "",
+  "tags": [],
+  "authorIds": [
+    "ZgrsWuRTAkXgeuPV9bo0zuEcA2w1"
+  ],
+  "dependencies": [],
+  "eventsFunctions": [
+    {
+      "async": true,
+      "description": "Make the user log-in, to verify their status as a fireside user.",
+      "fullName": "Authenticate user",
+      "functionType": "Action",
+      "name": "Authenticate",
+      "sentence": "Log-in with Fireside",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "__Fireside.LoggingIn",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetSceneVariableAsBoolean"
+              },
+              "parameters": [
+                "__Fireside.LoggingIn",
+                "True"
+              ]
+            },
+            {
+              "type": {
+                "await": true,
+                "value": "SendAsyncRequest"
+              },
+              "parameters": [
+                "\"https://fireside.arthuro555.com/api/auth/init\"",
+                "\"\"",
+                "\"GET\"",
+                "",
+                "__Fireside.Response",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "JSONToVariableStructure"
+              },
+              "parameters": [
+                "VariableString(__Fireside.Response)",
+                "__Fireside.Response"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VariableChildExists"
+                  },
+                  "parameters": [
+                    "__Fireside.Response",
+                    "\"error\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "__Fireside.LoggingIn",
+                    "False"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "DebuggerTools::ConsoleLog"
+                  },
+                  "parameters": [
+                    "\"An error occured while initiating the connection: \" + VariableString(__Fireside.Response.error)",
+                    "\"error\"",
+                    "\"Fireside API\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VariableChildExists"
+                  },
+                  "parameters": [
+                    "__Fireside.Response",
+                    "\"authRequestUid\""
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "LaunchFile"
+                  },
+                  "parameters": [
+                    "\"https://fireside.arthuro555.com/api/auth/oauth?state=\" + VariableString(__Fireside.Response.authRequestUid)",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Fireside::PollCheckAuthentication"
+                  },
+                  "parameters": [
+                    "",
+                    "VariableString(__Fireside.Response.authRequestUid)",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "JSONToVariableStructure"
+                  },
+                  "parameters": [
+                    "VariableString(__Fireside.Response)",
+                    "__Fireside.Response"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "SetSceneVariableAsBoolean"
+                  },
+                  "parameters": [
+                    "__Fireside.LoggingIn",
+                    "False"
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ],
+              "events": [
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VariableChildExists"
+                      },
+                      "parameters": [
+                        "__Fireside.Response",
+                        "\"error\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "DebuggerTools::ConsoleLog"
+                      },
+                      "parameters": [
+                        "\"An error occured while initiating the connection: \" + VariableString(__Fireside.Response.error)",
+                        "\"error\"",
+                        "\"Fireside API\""
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BuiltinCommonInstructions::Standard",
+                  "conditions": [
+                    {
+                      "type": {
+                        "value": "VariableChildExists"
+                      },
+                      "parameters": [
+                        "__Fireside.Response",
+                        "\"jwt\""
+                      ]
+                    }
+                  ],
+                  "actions": [
+                    {
+                      "type": {
+                        "value": "ModVarSceneTxt"
+                      },
+                      "parameters": [
+                        "__Fireside.Token",
+                        "=",
+                        "VariableString(__Fireside.Response.jwt)"
+                      ]
+                    },
+                    {
+                      "type": {
+                        "value": "JSONToVariableStructure"
+                      },
+                      "parameters": [
+                        "ToJSON(__Fireside.Response.userData)",
+                        "__Fireside.UserData"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "async": true,
+      "fullName": "Check authentication success",
+      "functionType": "Action",
+      "name": "PollCheckAuthentication",
+      "private": true,
+      "sentence": "Wait for the authentication request _PARAM1_ to succeed",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "ModVarScene"
+              },
+              "parameters": [
+                "__Fireside.Status",
+                "=",
+                "200"
+              ]
+            },
+            {
+              "type": {
+                "await": true,
+                "value": "SendAsyncRequest"
+              },
+              "parameters": [
+                "\"https://fireside.arthuro555.com/api/auth/poll?authRequestUid=\" + GetArgumentAsString(\"AuthRequestUID\")",
+                "\"\"",
+                "\"GET\"",
+                "",
+                "__Fireside.Response",
+                "__Fireside.Status"
+              ]
+            }
+          ],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "__Fireside.Status",
+                    "=",
+                    "200"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "BuiltinAsync::ResolveAsyncEventsFunction"
+                  },
+                  "parameters": [
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "VarScene"
+                  },
+                  "parameters": [
+                    "__Fireside.Status",
+                    "=",
+                    "200"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "Fireside::PollCheckAuthentication"
+                  },
+                  "parameters": [
+                    "",
+                    "GetArgumentAsString(\"AuthRequestUID\")",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [
+        {
+          "description": "AuthRequestUID",
+          "name": "AuthRequestUID",
+          "type": "string"
+        }
+      ],
+      "objectGroups": []
+    },
+    {
+      "description": "Checks if the current user is a logged-in user from the Fireside.",
+      "fullName": "Is logged-In",
+      "functionType": "Condition",
+      "name": "IsLoggedIn",
+      "sentence": "User is logged in",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "VariableChildExists"
+              },
+              "parameters": [
+                "__Fireside.UserData",
+                "\"jwt\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Checks if the current user is a flame.",
+      "fullName": "Is a flame?",
+      "functionType": "Condition",
+      "group": "Role",
+      "name": "IsFlame",
+      "sentence": "Current user is a flame",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "Fireside::IsLoggedIn"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "DebuggerTools::ConsoleLog"
+              },
+              "parameters": [
+                "\"You cannot get the role of a player on the Fireside before logging-in!\"",
+                "\"warning\"",
+                "\"Fireside API\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "__Fireside.UserData.is_flame",
+                "True"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Checks if the current user is a kindling user.",
+      "fullName": "Is kindling?",
+      "functionType": "Condition",
+      "group": "Role",
+      "name": "IsKindling",
+      "sentence": "Current user is kindling",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "Fireside::IsLoggedIn"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "DebuggerTools::ConsoleLog"
+              },
+              "parameters": [
+                "\"You cannot get the role of a player on the Fireside before logging-in!\"",
+                "\"warning\"",
+                "\"Fireside API\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "__Fireside.UserData.is_kindling",
+                "True"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Checks if the current user is a fire marshal.",
+      "fullName": "Is fire marshal?",
+      "functionType": "Condition",
+      "group": "Role",
+      "name": "IsMarshal",
+      "sentence": "Current user is fire marshal",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "Fireside::IsLoggedIn"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "DebuggerTools::ConsoleLog"
+              },
+              "parameters": [
+                "\"You cannot get the role of a player on the Fireside before logging-in!\"",
+                "\"warning\"",
+                "\"Fireside API\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "__Fireside.UserData.is_marshal",
+                "True"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Checks if the current user is The One And Only Marshmallow Toaster™ (HelperWesley).",
+      "fullName": "Is The Marshmallow Toaster™?",
+      "functionType": "Condition",
+      "group": "Role",
+      "name": "IsTheHelperMan",
+      "sentence": "Current user is fire marshal",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "Fireside::IsLoggedIn"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "DebuggerTools::ConsoleLog"
+              },
+              "parameters": [
+                "\"You cannot get the role of a player on the Fireside before logging-in!\"",
+                "\"warning\"",
+                "\"Fireside API\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "__Fireside.UserData.is_marshal",
+                "True"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Checks if the current user is nitro boosting the Fireside.",
+      "fullName": "Is a nitro booster?",
+      "functionType": "Condition",
+      "name": "IsNitroBooster",
+      "sentence": "Current user is a nitro booster (epic)",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "Fireside::IsLoggedIn"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "DebuggerTools::ConsoleLog"
+              },
+              "parameters": [
+                "\"You cannot get the role of a player on the Fireside before logging-in!\"",
+                "\"warning\"",
+                "\"Fireside API\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SceneVariableAsBoolean"
+              },
+              "parameters": [
+                "__Fireside.UserData.is_nitro_booster",
+                "True"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnBoolean"
+              },
+              "parameters": [
+                "True"
+              ]
+            }
+          ]
+        }
+      ],
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Gets the discord username of the logged-in user.",
+      "fullName": "Username",
+      "functionType": "StringExpression",
+      "name": "Username",
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "Fireside::IsLoggedIn"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "DebuggerTools::ConsoleLog"
+              },
+              "parameters": [
+                "\"You cannot get the username of a player on the Fireside before logging-in!\"",
+                "\"warning\"",
+                "\"Fireside API\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnString"
+              },
+              "parameters": [
+                "VariableString(__Fireside.UserData.username)"
+              ]
+            }
+          ]
+        }
+      ],
+      "expressionType": {
+        "type": "string"
+      },
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "description": "Gets the amount of time the current user has been a member of the fireside in milliseconds.",
+      "fullName": "Membership time",
+      "functionType": "Expression",
+      "name": "MembershipTime",
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": true,
+                "value": "Fireside::IsLoggedIn"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "DebuggerTools::ConsoleLog"
+              },
+              "parameters": [
+                "\"You cannot get the membership time of a player on the Fireside before logging-in!\"",
+                "\"warning\"",
+                "\"Fireside API\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "value": "SetReturnNumber"
+              },
+              "parameters": [
+                "Variable(__Fireside.UserData.membership_time_in_ms)"
+              ]
+            }
+          ]
+        }
+      ],
+      "expressionType": {
+        "type": "expression"
+      },
+      "parameters": [],
+      "objectGroups": []
+    },
+    {
+      "fullName": "",
+      "functionType": "Action",
+      "name": "LoadAvatarInSprite",
+      "sentence": "",
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const url = runtimeScene",
+            "    .getVariables()",
+            "    .get(\"__Fireside\")",
+            "    .getChild(\"UserData\")",
+            "    .getChild(\"avatarUrl\")",
+            "    .getAsString();",
+            "",
+            "if (!url) {",
+            "    return (this.logger || (this.logger = new gdjs.Logger(\"Fireside API\"))).warn(",
+            "        \"You cannot get the avatar of a player on the Fireside before logging-in!\"",
+            "    )",
+            "}",
+            "",
+            "objects[0].getRendererObject().texture = PIXI.Texture.from(url);",
+            ""
+          ],
+          "parameterObjects": "Sprite",
+          "useStrict": true,
+          "eventsSheetExpanded": false
+        }
+      ],
+      "parameters": [
+        {
+          "description": "The sprite to load the avatar in",
+          "name": "Sprite",
+          "supplementaryInformation": "Sprite",
+          "type": "objectList"
+        }
+      ],
+      "objectGroups": []
+    }
+  ],
+  "eventsBasedBehaviors": [],
+  "eventsBasedObjects": []
+}
